@@ -1,9 +1,52 @@
-purpose: REPLACE
-assisted_decision: REPLACE
-users: REPLACE
-affected_population: REPLACE
-owner: REPLACE
-non_predictive_alternative: REPLACE
-out_of_scope_use: REPLACE
-withdrawal_condition: REPLACE
-appeal_mechanism: REPLACE
+purpose: >-
+  Priorizar para revision humana los casos territoriales que probablemente requieren
+  atencion, ordenandolos para que el equipo operativo decida a cuales dedica su
+  capacidad limitada de revision. El sistema no atiende casos: ordena una cola.
+
+assisted_decision: >-
+  A que casos asigna el equipo operativo su capacidad de revision en el proximo ciclo.
+  El sistema ordena y propone; la decision de revisar, intervenir o archivar la toma
+  siempre una persona, y queda registrada junto a la propuesta del sistema.
+
+users: >-
+  Operadores del area de revision territorial, que reciben el orden propuesto y deciden
+  caso por caso, y el responsable institucional, que aprueba, condiciona o suspende el
+  uso del sistema.
+
+affected_population: >-
+  Las personas cuyos casos entran al sistema: 640 en el conjunto sintetico, repartidas
+  en los grupos protegidos G1 (396) y G2 (244) y en cuatro tramos de edad. El daño no
+  se reparte igual. Medido sobre el conjunto de prueba, el sistema deja sin marcar 35 de
+  cada 100 casos de G1 que si requerian revision, frente a 21 de cada 100 en G2.
+
+owner: >-
+  Responsable institucional del area de revision territorial, que rinde cuentas ante la
+  direccion de la institucion. El Product Owner responde por la operacion diaria y el
+  Data Scientist por la auditoria de equidad en cada reentrenamiento. En un despliegue
+  real este campo debe constar con nombre, cargo y correo de contacto.
+
+non_predictive_alternative: >-
+  Si el modelo se retira, la priorizacion vuelve a la regla manual anterior: orden por
+  fecha de recepcion, con atencion inmediata a los casos que ya tienen incidentes
+  previos registrados. Es mas lenta y no detecta patrones combinados, pero no introduce
+  brecha entre grupos protegidos y no necesita el grupo protegido ni el tramo de edad.
+
+out_of_scope_use: >-
+  Queda prohibido usar la puntuacion para intervencion automatica, decision de
+  elegibilidad o declaratoria de emergencia, segun configs/governance.yml. Tampoco puede
+  usarse para evaluar a una persona fuera del ciclo de revision, para construir listas
+  persistentes, ni para justificar una decision ya tomada por otra via.
+
+withdrawal_condition: >-
+  El uso se suspende si la brecha de recall entre grupos protegidos supera 0.16 en la
+  auditoria mensual, si el recall global baja de 0.68, o si se documenta un solo caso de
+  uso prohibido. La suspension la ejecuta el responsable institucional y no requiere
+  consenso tecnico: ante la duda se apaga y se revisa despues.
+
+appeal_mechanism: >-
+  Toda persona marcada puede pedir por escrito el motivo de la marca, la correccion de
+  un dato erroneo y una segunda revision humana a cargo de alguien distinto de quien
+  reviso primero. La institucion conserva la version del modelo y los datos que
+  produjeron cada marca para poder reconstruir el caso. Responde el responsable
+  institucional con apoyo legal. El plazo de respuesta debe fijarlo la institucion; aqui
+  se asume 20 dias habiles como valor a confirmar.

@@ -1,6 +1,51 @@
-priority_harm: REPLACE
-primary_metric: REPLACE
-tolerance: REPLACE
-evidence: REPLACE
-limitation: REPLACE
-recommendation: REPLACE
+priority_harm: >-
+  Que una persona del grupo G1 cuyo caso si requiere revision quede sin marcar y por
+  tanto sin atencion. Elijo este dano por encima del sobre-marcado de G2 porque el
+  sistema solo ordena una cola para revision humana: un falso positivo cuesta una
+  revision de mas, que el operador descarta, mientras un falso negativo cuesta un caso
+  desatendido que nadie vuelve a mirar. Los dos danos existen y son medibles, pero no se
+  pueden minimizar a la vez con el mismo umbral, y este es el que elijo evitar primero.
+
+primary_metric: >-
+  Brecha de recall entre grupos protegidos, es decir la diferencia en la proporcion de
+  casos que si requerian revision y el sistema efectivamente marco. Es la metrica que
+  mide el dano elegido: la exactitud global lo esconde, porque un modelo puede acertar
+  mas en total mientras desatiende sistematicamente a un grupo.
+
+tolerance: >-
+  0.16, el techo que configs/governance.yml ya declaraba antes de auditar. Lo mantengo
+  sin cambios precisamente porque medi 0.138 despues: bajarlo ahora para reprobar al
+  modelo, o subirlo para aprobarlo, seria mover la porteria una vez visto el resultado.
+  El margen es estrecho, 0.022, y eso queda escrito como parte de la decision y no como
+  un detalle al margen.
+
+evidence: >-
+  reports/lab12/logistic/ y reports/lab12/tree/, generados por scripts/lab12_audit.py
+  sobre los 160 casos de prueba de la particion cronologica del 25 de septiembre al 27
+  de diciembre de 2026. Regresion logistica: recall 0.653 en G1 frente a 0.791 en G2,
+  brecha 0.138; FPR 0.250 frente a 0.375, brecha 0.125; tasa de seleccion 0.446 frente a
+  0.678; 0.014 ms por caso y 3.56 KB. Pasa las cinco compuertas. Arbol de decision:
+  brecha de recall 0.181 y brecha de FPR 0.168, ambas por encima del techo de 0.16, y
+  exactitud menor, 0.706 frente a 0.719; estado REVIEW. Ninguna cifra esta escrita a
+  mano: todas salen de ejecutar el script.
+
+limitation: >-
+  Tres limites que la evidencia no cubre. Primero, el desglose interseccional no es
+  interpretable en tres de ocho celdas: G2 con 30-44 y G2 con 45-59 tienen 2 casos
+  negativos, y G2 con 18-29 tiene 3, de modo que el FPR de 1.000 que aparece en el arbol
+  son dos casos de dos; declaro soporte minimo de 30 casos y no concluyo nada por debajo.
+  Segundo, la brecha de 0.138 proviene de una sola particion de 160 casos, sin intervalo
+  de confianza ni repeticion con otras semillas, asi que la distancia real al techo de
+  0.16 es mas incierta de lo que sugiere la cifra. Tercero, los datos son sinteticos y
+  didacticos: nada de esto estima el comportamiento del sistema sobre poblacion real.
+
+recommendation: >-
+  GO condicionado, no GO simple. El modelo logistico pasa las cinco compuertas y es el
+  que recomiendo frente al arbol, que viola dos compuertas de equidad siendo ademas menos
+  exacto. Pero el margen de 0.022 contra el techo y la ausencia de intervalos no sostienen
+  un despliegue abierto, de modo que condiciono el uso a cuatro cosas: revision humana
+  obligatoria de cada caso marcado, sin ninguna accion automatica; reauditoria mensual de
+  la brecha de recall sobre la ventana mas reciente, con retiro inmediato si supera 0.16;
+  publicacion de la auditoria completa, incluidas las celdas sin soporte, para que nadie
+  la lea como un sello de aprobacion; y mecanismo de apelacion operativo antes del primer
+  caso real, porque hoy es el unico riesgo de impacto 4 sin control efectivo.
