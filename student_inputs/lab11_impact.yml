@@ -26,10 +26,17 @@ owner: >-
   real este campo debe constar con nombre, cargo y correo de contacto.
 
 non_predictive_alternative: >-
-  Si el modelo se retira, la priorizacion vuelve a la regla manual anterior: orden por
-  fecha de recepcion, con atencion inmediata a los casos que ya tienen incidentes
-  previos registrados. Es mas lenta y no detecta patrones combinados, pero no introduce
-  brecha entre grupos protegidos y no necesita el grupo protegido ni el tramo de edad.
+  Orden por fecha de recepcion con atencion inmediata a los casos cuyo numero de
+  incidentes previos alcanza la mediana del historico de entrenamiento, que es 3. El
+  umbral sale de la distribucion de entrenamiento y nunca de las etiquetas de prueba, de
+  modo que la regla no aprende del resultado. No usa modelo, no usa el grupo protegido ni
+  el tramo de edad, y la puede aplicar una persona con una hoja de calculo.
+  Medida sobre el mismo conjunto de prueba (reports/lab12/comparison.csv) resulta MEJOR
+  que el modelo para el dano que priorizo: recall 0.898 en G1 frente a 0.653, es decir 10
+  casos de G1 sin marcar por cada 100 en lugar de 35, con una brecha de recall de 0.131
+  frente a 0.138. Su costo es marcar el 71 por ciento de los casos en lugar del 53 por
+  ciento, con FPR 0.544 frente a 0.279. La ventaja del modelo no es menos dano sino menos
+  capacidad de revision gastada.
 
 out_of_scope_use: >-
   Queda prohibido usar la puntuacion para intervencion automatica, decision de

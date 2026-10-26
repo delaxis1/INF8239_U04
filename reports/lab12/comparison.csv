@@ -1,0 +1,5 @@
+alternativa,accuracy,recall,precision,fpr,selection_rate,brecha_recall,brecha_fpr,entrenamiento_s,tamano_kb,latencia_ms,pasa_compuertas
+regla_manual (previous_incidents >= 3),0.675,0.837,0.6754,0.5441,0.7125,0.1305,0.1058,0.0,0.0,0.0018,True
+marcar_todo,0.575,1.0,0.575,1.0,1.0,0.0,0.0,0.0,0.0,0.0,True
+logistic,0.7188,0.7174,0.7765,0.2794,0.5312,0.1376,0.125,0.0502,3.56,0.0292,True
+tree,0.7063,0.7174,0.7586,0.3088,0.5437,0.1813,0.1683,0.0139,7.87,0.0276,False

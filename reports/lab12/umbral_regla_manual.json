@@ -1,0 +1,5 @@
+{
+  "umbral": 3,
+  "origen": "mediana de previous_incidents en el conjunto de entrenamiento",
+  "etiquetas_usadas": false
+}
