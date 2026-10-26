@@ -108,8 +108,8 @@ def build(ev: dict, repo_url: str | None) -> Path:
     add_inline_markdown(p, "**Enlace:** ", size=10.5)
     if repo_url:
         add_hyperlink(p, repo_url)
-        add_inline_markdown(p, "  ·  etiqueta `u04-ejercicio07`  ·  repositorio privado con "
-                               "acceso de colaborador para el profesor", size=10.5)
+        add_inline_markdown(p, "  ·  etiqueta `u04-ejercicio07`  ·  repositorio público: "
+                               "el enlace abre sin credenciales ni invitación", size=10.5)
     else:
         add_inline_markdown(p, "pendiente (regenerar con `--repo-url`)", size=10.5,
                             color=MUTED)
