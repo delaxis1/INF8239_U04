@@ -9,4 +9,6 @@ text=f"""# Incident simulation
 - communication: REPLACE
 - corrective actions, owners and dates: REPLACE
 """
-path=Path("reports/lab13/INCIDENT_POSTMORTEM.md"); path.parent.mkdir(parents=True,exist_ok=True); path.write_text(text,encoding="utf-8"); print(path)
+path=Path("reports/lab13/INCIDENT_POSTMORTEM.md"); path.parent.mkdir(parents=True,exist_ok=True)
+if path.exists(): print(f"{path} ya existe: el simulacro no sobrescribe el postmortem redactado")
+else: path.write_text(text,encoding="utf-8"); print(path)

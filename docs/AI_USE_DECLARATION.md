@@ -1,5 +1,7 @@
 # Declaración de uso de IA
 
+# Ejercicio 07 · Evaluación de impacto y auditoría de equidad
+
 **INF-8239 Ciencia de Datos II · Unidad 04 · Ejercicio 07** · Alexis De La Cruz · 100805370
 
 El mandato permite que la IA apoye estructura, pruebas o redacción, pero **no que decida
@@ -83,3 +85,68 @@ El código, los datos, las referencias, la interpretación normativa y las concl
 responsabilidad mía. Puedo explicar cualquier fragmento del proyecto y defender cada
 decisión de valor, empezando por la que ordena todas las demás: cuál de los dos daños
 elegí evitar primero y por qué.
+
+---
+
+# Ejercicio 08 · Expediente de gobernanza y simulacro
+
+## Prompts relevantes
+
+| Prompt | Para qué se usó |
+|---|---|
+| "ya lo subí, vamos con el ejercicio 08" | Leer el mandato y la rúbrica del 08, ejecutar LAB13 y el simulacro |
+| "2 años" (retención) | **Mi decisión** del plazo de conservación, de la que sale toda la política |
+| "no publicar" (Streamlit Cloud) | **Mi decisión** de no publicar el tablero en un servicio externo |
+
+## Qué decidí yo
+
+| Decisión | Quién |
+|---|---|
+| Plazo de retención de 2 años | **Yo** |
+| No publicar el tablero en Streamlit Community Cloud | **Yo** |
+| Mantener la decisión de limitar | **Yo**, confirmada con la evidencia del simulacro |
+| Base segura del runbook: la regla manual, no la versión anterior del modelo | Mía, apoyada en que la regla mide recall 0.898 en G1 |
+| Asignación de roles del RACI | Mía, como roles y no como personas, declarado así |
+
+## Qué hizo el asistente
+
+- Ejecutó `scripts/lab13_governance.py` y `scripts/simulate_incident.py`.
+- Amplió `student_inputs/raci.csv` de 4 a 13 actividades y redactó el procedimiento de
+  traspaso.
+- Redactó los borradores del inventario, las dos fichas, el runbook, el postmortem y el
+  documento de traspaso, siguiendo mis decisiones.
+- Escribió `tests/test_inventory.py`, diez pruebas que comprueban que el inventario sigue
+  siendo cierto y que el RACI es consistente.
+- Reescribió `app.py` para mostrar la decisión gobernada junto al veredicto automático.
+- Montó el generador del informe del 08 reutilizando el del 07.
+
+## Qué verifiqué
+
+- **Las 20 pruebas pasan**, incluidas las diez nuevas. Comprobé que fallan si se altera el
+  inventario o el RACI, que es lo que las hace útiles.
+- **El tablero abre y muestra lo que dice el informe**: lo ejecuté y revisé que las cifras
+  coinciden con `reports/lab12/`.
+- **Ningún `REPLACE`** queda en `docs/`, `student_inputs/` ni `reports/`.
+- **Los umbrales del runbook son los de `configs/governance.yml`**, no cifras escritas a
+  mano en el documento.
+
+## Correcciones durante el trabajo
+
+1. **`simulate_incident.py` sobrescribía el postmortem** en cada ejecución, igual que
+   `lab11_impact.py` hacía con el registro de decisión. Se le puso el mismo guardia.
+2. **El RACI del proyecto base no cubría cuatro actividades** que el expediente promete:
+   apelaciones, borrado por retención, retiro del sistema y traspaso. Sin ellas, esas
+   promesas no tenían encargado.
+3. **Dos filas del RACI dejaban a un rol consultándose a sí mismo.** Se corrigieron y se
+   añadió una prueba para que no vuelva a ocurrir.
+4. **El tablero del proyecto base presentaba el GO automático en la casilla «Decisión»**,
+   lo que invita a leer un veredicto de compuertas como una decisión tomada. Ahora muestra
+   las dos cosas y la contradicción queda a la vista.
+5. **La primera versión del informe mostraba backticks literales dentro de una negrita.**
+   Se corrigió el texto en lugar de dejarlo.
+
+## Responsabilidad
+
+Lo dicho para el Ejercicio 07 vale igual aquí: el código, los datos, las referencias, la
+interpretación normativa y las conclusiones son responsabilidad mía, y puedo defender cada
+decisión de valor.

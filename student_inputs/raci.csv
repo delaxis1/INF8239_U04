@@ -1,5 +1,14 @@
 activity,R,A,C,I
-Data quality,Data Engineer,Product Owner,Data Scientist,Affected representatives
-Model validation,Data Scientist,Product Owner,Data Engineer,Affected representatives
-Deployment,ML Engineer,Product Owner,Data Scientist,Users
-Incident response,ML Engineer,Institutional Owner,Legal and Data Scientist,Affected representatives
+Inventario y minimizacion de datos,Data Engineer,Institutional Owner,Legal,Affected representatives
+Calidad y contrato de datos,Data Engineer,Product Owner,Data Scientist,Affected representatives
+Entrenamiento y seleccion de modelo,Data Scientist,Product Owner,ML Engineer,Users
+Auditoria de equidad por grupo,Data Scientist,Institutional Owner,Legal,Affected representatives
+Validacion contra compuertas,Data Scientist,Product Owner,Data Engineer,Affected representatives
+Decision de despliegue limitado,Product Owner,Institutional Owner,Data Scientist and Legal,Affected representatives
+Despliegue y versionado,ML Engineer,Product Owner,Data Scientist,Users
+Monitoreo mensual y alertas,ML Engineer,Product Owner,Data Scientist,Users
+Respuesta a incidentes y rollback,ML Engineer,Institutional Owner,Legal and Data Scientist,Affected representatives
+Atencion de apelaciones,Legal,Institutional Owner,Data Scientist,Affected representatives
+Retiro del sistema,Product Owner,Institutional Owner,Legal and ML Engineer,Affected representatives
+Borrado por fin de retencion,Data Engineer,Institutional Owner,Legal,Affected representatives
+Traspaso entre responsables,Product Owner,Institutional Owner,Data Scientist and ML Engineer,Users
