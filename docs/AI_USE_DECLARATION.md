@@ -13,14 +13,16 @@ línea y cómo se respetó.
 **Claude Opus 5 (Anthropic)**, mediante Claude Code, con acceso al proyecto local y al aula
 virtual para leer el mandato, la rúbrica y los capítulos LAB11, LAB12 y LAB13.
 
-## Prompts relevantes
+## Instrucciones relevantes
 
-| Prompt | Para qué se usó |
+Las instrucciones se recogen **resumidas en su contenido, no transcritas literalmente**.
+
+| Instrucción dada al asistente | Qué determinó |
 |---|---|
-| "vamos a hacer los ejercicios de la unidad 4, el 07 y 08, vamos a comenzar con el 07" | Leer el mandato y los capítulos, instalar el proyecto base y ejecutar la auditoría |
-| "tráeme los 8 escenarios de riesgo redactados" | Redactar los ocho riesgos a partir de la evidencia medida, para mi revisión |
-| "R01, que G1 quede sin revisar" | **Mi decisión del daño prioritario**, de la que se derivan la métrica, la tolerancia y la recomendación |
-| "dame el pdf para enviar la práctica" | Verificar el mandato, completar lo que faltaba y generar el informe |
+| Inicio de los Ejercicios 07 y 08 de la Unidad 04, empezando por el 07 | Leer el mandato y los capítulos, instalar el proyecto base y ejecutar la auditoría |
+| Solicitud de redactar los ocho escenarios de riesgo a partir de la evidencia medida | Borrador del registro de riesgos, para mi revisión |
+| **Selección de R01 —que una persona de G1 quede sin revisar— como daño prioritario** | **Mi decisión**, de la que se derivan la métrica, la tolerancia y la recomendación |
+| Solicitud del informe en PDF para la entrega | Verificar el mandato, completar lo que faltaba y generar el informe |
 
 ## Qué decidí yo y qué no podía decidir el asistente
 
@@ -90,13 +92,15 @@ elegí evitar primero y por qué.
 
 # Ejercicio 08 · Expediente de gobernanza y simulacro
 
-## Prompts relevantes
+## Instrucciones relevantes
 
-| Prompt | Para qué se usó |
+Las instrucciones se recogen **resumidas en su contenido, no transcritas literalmente**.
+
+| Instrucción dada al asistente | Qué determinó |
 |---|---|
-| "ya lo subí, vamos con el ejercicio 08" | Leer el mandato y la rúbrica del 08, ejecutar LAB13 y el simulacro |
-| "2 años" (retención) | **Mi decisión** del plazo de conservación, de la que sale toda la política |
-| "no publicar" (Streamlit Cloud) | **Mi decisión** de no publicar el tablero en un servicio externo |
+| Inicio del Ejercicio 08 tras entregar el 07 | Leer el mandato y la rúbrica, ejecutar LAB13 y el simulacro |
+| **Fijación del plazo de retención en dos años** | **Mi decisión**, de la que sale toda la política de conservación y borrado |
+| **Decisión de no publicar el tablero en Streamlit Community Cloud** | **Mi decisión** de no llevar el sistema a un servicio externo |
 
 ## Qué decidí yo
 
