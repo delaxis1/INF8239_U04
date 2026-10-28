@@ -285,9 +285,10 @@ def build(repo_url: str | None) -> Path:
                    "añade a cada nivel:", size=10, after=4)
     data_table(doc, ["Nivel", "Qué añade el expediente de gobernanza"], [
         ["Obligación legal", "La retención con plazo y ejecutor responde al principio de "
-                             "proporcionalidad de la Ley 172-13; conservar la versión del "
-                             "modelo y los datos de cada marca es lo que hace posible el "
-                             "habeas data del art. 70 de la Constitución"],
+                             "finalidad del art. 5 de la Ley 172-13, que exige datos no "
+                             "excesivos respecto del fin declarado; conservar la versión "
+                             "del modelo y los datos de cada marca es lo que hace posible "
+                             "el hábeas data del art. 70 de la Constitución"],
         ["Marco voluntario", "El runbook y el monitoreo cubren la función MANAGE del NIST "
                              "AI RMF; las dos fichas siguen el formato de Model Cards y "
                              "Datasheets, que son práctica de la comunidad, no norma"],
@@ -345,21 +346,26 @@ def build(repo_url: str | None) -> Path:
 
     heading(doc, "Referencias")
     for ref in (
-        "Constitución de la República Dominicana, proclamada el 26 de enero de 2010, "
-        "arts. 44 y 70.",
+        "Constitución de la República Dominicana, votada y proclamada por la Asamblea "
+        "Nacional el 27 de octubre de 2024, arts. 44 y 70. Gaceta Oficial No. 11170 del "
+        "31 de octubre de 2024.",
         "Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J. W., Wallach, H., Daumé III, "
         "H., & Crawford, K. (2021). Datasheets for datasets. Communications of the ACM, "
         "64(12), 86-92. https://doi.org/10.1145/3458723",
-        "Ley No. 172-13, Ley Orgánica sobre Protección de Datos de Carácter Personal, "
-        "República Dominicana, 2013.",
+        "Ley No. 172-13 que tiene por objeto la protección integral de los datos "
+        "personales asentados en archivos, registros públicos, bancos de datos u otros "
+        "medios técnicos de tratamiento de datos destinados a dar informes, sean estos "
+        "públicos o privados. República Dominicana, 13 de diciembre de 2013. Gaceta "
+        "Oficial No. 10737 del 15 de diciembre de 2013.",
         "Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., "
         "Spitzer, E., Raji, I. D., & Gebru, T. (2019). Model cards for model reporting. "
         "Proceedings of the Conference on Fairness, Accountability, and Transparency, "
         "220-229. https://doi.org/10.1145/3287560.3287596",
         "NIST. (2023). Artificial Intelligence Risk Management Framework (AI RMF 1.0). "
         "https://doi.org/10.6028/NIST.AI.100-1",
-        "OECD. (2019). Recommendation of the Council on Artificial Intelligence. "
-        "https://doi.org/10.1787/cc2e1d3e-en",
+        "OECD. (2019, enmendada el 3 de mayo de 2024). Recommendation of the Council on "
+        "Artificial Intelligence, OECD/LEGAL/0449. "
+        "https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449",
     ):
         p = paragraph(doc, ref, size=8.5, after=2)
         p.paragraph_format.left_indent = Cm(0.8)

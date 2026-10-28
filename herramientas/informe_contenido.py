@@ -292,16 +292,20 @@ def build(ev: dict, repo_url: str | None) -> Path:
     heading(doc, "7. Obligación legal, marco voluntario y recomendación ética")
     paragraph(doc, "El sistema trabaja sobre datos sintéticos, de modo que **hoy no le aplica "
                    "ningún régimen de datos personales**. Lo que sigue es lo que aplicaría "
-                   "con datos reales, que es el escenario que el ejercicio pide anticipar. La "
-                   "interpretación normativa es mía y queda sujeta a verificación contra el "
-                   "texto vigente.", size=10, after=4)
+                   "con datos reales, que es el escenario que el ejercicio pide anticipar. "
+                   "Las citas están verificadas contra fuente primaria —el procedimiento y "
+                   "los cinco errores que corrigió están en `docs/MARCO_NORMATIVO.md` §4—, "
+                   "pero la lectura de qué obliga cada norma a este sistema es mía.",
+              size=10, after=4)
     data_table(doc, ["Nivel", "Instrumento", "Qué implica aquí"], [
-        ["Obligación legal", "Constitución dominicana, arts. 44 y 70",
-         "Intimidad, protección de datos y habeas data: la apelación y la conservación de "
-         "la versión del modelo dejan de ser buenas prácticas"],
+        ["Obligación legal", "Constitución dominicana (27 de octubre de 2024), arts. 44 y 70",
+         "El art. 44.2 manda al titular ante un juez para rectificar: la apelación es la "
+         "vía que le evita el pleito. El hábeas data del art. 70 exige conservar la versión "
+         "del modelo y los datos de cada marca, o no hay nada que exhibir ni desmentir"],
         ["Obligación legal", "Ley 172-13 de protección de datos personales",
-         "Finalidad, calidad y proporcionalidad: usar la puntuación para elegibilidad sería "
-         "un fin distinto del declarado"],
+         "Su principio de finalidad exige datos adecuados, pertinentes y no excesivos "
+         "respecto del fin declarado: usar la puntuación para elegibilidad sería un fin "
+         "distinto del declarado"],
         ["Marco voluntario", "NIST AI RMF 1.0",
          "Voluntario por diseño; aporta la estructura GOVERN, MAP, MEASURE y MANAGE"],
         ["Marco voluntario", "Recomendación de la OCDE sobre IA",
@@ -401,23 +405,29 @@ def build(ev: dict, repo_url: str | None) -> Path:
 
     heading(doc, "Referencias")
     for ref in (
-        "Constitución de la República Dominicana, proclamada el 26 de enero de 2010, "
-        "arts. 44 y 70.",
+        "Constitución de la República Dominicana, votada y proclamada por la Asamblea "
+        "Nacional el 27 de octubre de 2024, arts. 44 y 70. Gaceta Oficial No. 11170 del "
+        "31 de octubre de 2024.",
         "Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J. W., Wallach, H., Daumé III, "
         "H., & Crawford, K. (2021). Datasheets for datasets. Communications of the ACM, "
         "64(12), 86-92. https://doi.org/10.1145/3458723",
-        "Ley No. 172-13, Ley Orgánica sobre Protección de Datos de Carácter Personal, "
-        "República Dominicana, 2013.",
+        "Ley No. 172-13 que tiene por objeto la protección integral de los datos "
+        "personales asentados en archivos, registros públicos, bancos de datos u otros "
+        "medios técnicos de tratamiento de datos destinados a dar informes, sean estos "
+        "públicos o privados. República Dominicana, 13 de diciembre de 2013. Gaceta "
+        "Oficial No. 10737 del 15 de diciembre de 2013.",
         "Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., "
         "Spitzer, E., Raji, I. D., & Gebru, T. (2019). Model cards for model reporting. "
         "Proceedings of the Conference on Fairness, Accountability, and Transparency, "
         "220-229. https://doi.org/10.1145/3287560.3287596",
         "NIST. (2023). Artificial Intelligence Risk Management Framework (AI RMF 1.0). "
         "https://doi.org/10.6028/NIST.AI.100-1",
-        "OECD. (2019). Recommendation of the Council on Artificial Intelligence. "
-        "https://doi.org/10.1787/cc2e1d3e-en",
+        "OECD. (2019, enmendada el 3 de mayo de 2024). Recommendation of the Council on "
+        "Artificial Intelligence, OECD/LEGAL/0449. "
+        "https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449",
         "Reglamento (UE) 2024/1689 del Parlamento Europeo y del Consejo, por el que se "
-        "establecen normas armonizadas en materia de inteligencia artificial.",
+        "establecen normas armonizadas en materia de inteligencia artificial. "
+        "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
         "Weerts, H., Dudík, M., Edgar, R., Jalali, A., Lutz, R., & Madaio, M. (2023). "
         "Fairlearn: Assessing and improving fairness of AI systems. Journal of Machine "
         "Learning Research, 24(257), 1-8.",

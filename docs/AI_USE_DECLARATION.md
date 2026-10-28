@@ -32,7 +32,7 @@ Las instrucciones se recogen **resumidas en su contenido, no transcritas literal
 | Métrica primaria y tolerancia de 0.16 | Yo, sobre el umbral ya preinscrito en `governance.yml` |
 | Decisión final: limitar | **Yo**, después de ver que la regla manual gana al modelo |
 | Dueños de cada riesgo | Yo, sobre los roles de `raci.csv` |
-| Interpretación normativa del apartado legal | **Mía**, y queda marcada como pendiente de verificación |
+| Interpretación normativa del apartado legal | **Mía**. Las citas se verificaron después contra fuente primaria y corrigieron cinco errores: `docs/MARCO_NORMATIVO.md` §4 |
 | Cifras de la auditoría | Ninguno de los dos: salen de ejecutar los scripts |
 
 El asistente me planteó explícitamente la elección entre R01 y R02 en lugar de rellenarla,
@@ -80,6 +80,13 @@ dijo y volvió a preguntar antes de escribir el informe.
 5. **La regla manual con `previous_incidents >= 1` marcaba al 95 % de los casos** y no
    servía como referencia. Se reformuló con la mediana del entrenamiento, dejando constancia
    de que el umbral no sale de las etiquetas.
+6. **El apartado legal tenía cinco citas mal.** El asistente lo redactó con una advertencia
+   de «pendiente de verificación» en lugar de verificarlo, y yo acepté esa advertencia.
+   Al comprobarlo contra los textos oficiales aparecieron una Constitución derogada, un
+   título de ley inexistente, un principio que la Ley 172-13 no nombra, una facultad que el
+   hábeas data no concede y un DOI que no resuelve. Está todo detallado y corregido en
+   `docs/MARCO_NORMATIVO.md` §4. **Los PDF de los ejercicios 07 y 08 que entregué llevan la
+   versión anterior**; esta es la corrección, no un retoque.
 
 ## Responsabilidad
 
